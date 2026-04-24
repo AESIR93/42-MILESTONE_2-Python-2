@@ -1,41 +1,25 @@
 def input_temperature(temp_str: str) -> int:
     temp = int(temp_str)
     if temp < 0:
-        raise ValueError(f"Caught input_temperature error: {temp}°C is"
-                         " too cold for plants (min 0°C)")
+        raise ValueError(f"{temp}°C is too cold for plants (min 0°C)\n")
     if 40 < temp:
-        raise ValueError(f"Caught input_temperature error: {temp}°C is"
-                         " too hot for plants (max 40°C)")
+        raise ValueError(f"{temp}°C is too hot for plants (max 40°C)\n")
     return temp
 
 
 def test_temperature(input_temp: str) -> None:
+    print(f"Input data is '{input_temp}'")
     try:
         temp = input_temperature(input_temp)
-        print(f"Temperature is now {temp}°C")
+        print(f"Temperature is now {temp}°C\n")
     except ValueError as e:
-        if "invalid literal" in str(e):
-            print(f"Caught input_temperature error: {e}")
-        else:
-            print(e)
-    finally:
-        print("Program still runs")
+        print(f"Caught input_temperature error: {e}\n")
 
 
 if __name__ == "__main__":
-    print("=== Garden Temperature ===")
-    input_temp = "25"
-    print(f"Input data is '{input_temp}'")
-    test_temperature(input_temp)
-    print("")
-    input_temp_2 = "abc"
-    print(f"Input data is '{input_temp_2}'")
-    test_temperature(input_temp_2)
-    print("")
-    input_temp_3 = "100"
-    print(f"Input data is '{input_temp_3}'")
-    test_temperature(input_temp_3)
-    print("")
-    input_temp_4 = "-100"
-    print(f"Input data is '{input_temp_4}'")
-    test_temperature(input_temp_4)
+    print("=== Garden Temperature Checker ===\n")
+    test_temperature("25")
+    test_temperature("abc")
+    test_temperature("100")
+    test_temperature("-50")
+    print("All tests completed - program didn't crash!")

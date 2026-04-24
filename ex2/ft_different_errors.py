@@ -36,4 +36,4 @@ if __name__ == "__main__":
     test_error_types(2)
     test_error_types(3)
     test_error_types(4)
-    print("All error types tested successfully!")
+    print("\nAll error types tested successfully!")
